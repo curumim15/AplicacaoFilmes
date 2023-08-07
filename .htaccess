@@ -1,0 +1,17 @@
+# Ativação do mecanismo de reescrita. 
+# Baseado em regras para reescrita dos URLs solicitados em tempo real
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php [L]
+
+# Se o URL pedido não for um ficheiro, nem uma diretoria é feito um reencaminhamento
+# para o index.php
+#
+# Esta é a forma de tornar o index.php responsável por responder a todos os pedidos
+# (pedidos a tudo que "não existe")
+#
+# A flag [L] termina o processamento das condições (RewriteCond) logo que uma seja
+# verificada (verdadeira)
